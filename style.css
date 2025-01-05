@@ -268,12 +268,12 @@ body {
 .welcome-3-header {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
 }
 
 .welcome3-header h2 {
     font-size: 42px;
     font-family: 'Indie Flower', sans-serif;
+    margin-top: 55px;
 }
 
 .welcome3-header p {
@@ -395,7 +395,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     cursor: pointer;
     transition: all 0.3 ease;
-    margin-top: 50px;
+    margin-top: 90px;
 }
 
 #buttonConferir:hover {
@@ -403,16 +403,26 @@ body {
 }
 
 .footer-container {
+    display: flex;
+    justify-content: space-around;
     background-color: #624CAB;
     padding: 20px 0px;
     height: 250px;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 110px;
+}
+
+.footer-contato {
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-container .footer-logo {
     display: flex;
-    
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .footer-logo img {
