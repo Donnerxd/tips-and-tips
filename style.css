@@ -23,7 +23,7 @@ body {
 
 .navbar-container {
     display: flex;
-    width: 100vw;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
     background-color: #624CAB;
@@ -37,7 +37,6 @@ body {
     align-items: center;
     list-style-type: none;
     gap: 40px;
-    margin-left: 300px;
 }
 
 .navbar-items a {
@@ -116,13 +115,13 @@ body {
 }
 
 .welcome h1 {
-    font-size: 45px;
+    font-size: 50px;
     text-align: center;
 }
 
 .welcome img {
-    height: 500px;
-    width: 650px;
+    height: 450px;
+    width: auto;
     border-radius: 5%;
     border: none;
 }
@@ -150,6 +149,12 @@ body {
 
 .ranking-header {
     display: flex;
+    gap: 10px;
+}
+
+.aba-ranking .ranking-header img {
+    height: 50px;
+    width: 50px;
 }
 
 .welcome-2 .ranking-texto {
@@ -169,12 +174,35 @@ body {
 
 .welcome-2 span {
     font-size: 20px;
-    color: gray;
+    color: #624CAB;
 }
 
-.welcome-2 .aba-ranking img {
-    height: 400px;
-    width: auto;
+.grid-ranking {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.card-rank {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    align-items: center;
+    background-color: #d3d3d3;
+    height: 150px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.grid-ranking .card-rank img {
+    height: 50px;
+    width: 50px;
+}
+
+.grid-ranking .card-rank span {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .welcome-2 img {
@@ -189,7 +217,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-top: 200px;
+    margin-top: 165px;
 }
 
 .welcome-2 .planilhas-header {
@@ -226,7 +254,7 @@ body {
     height: auto;
     width: 100%;
     padding: 10px;
-    margin-top: 100px;
+    margin-top: 165px;
     gap: 30px;
 }
 
@@ -274,8 +302,8 @@ body {
 }
 
 .stats-card {
-    border-radius: 0.5rem;
-    border: 1px solid gray;
+    border: none;
+    border-radius: 20px;
     transition: transform 0.3s ease;
     margin-top: 30px;
 }
@@ -302,7 +330,7 @@ body {
 
 .stats-image {
     aspect-ratio: 16 / 9;
-    background-color: rgba(98,76,171, 0.5);
+    background-color: rgba(0,0,0, 0.5);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -371,6 +399,32 @@ body {
 }
 
 #buttonConferir:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+}
+
+.footer-container {
+    background-color: #624CAB;
+    padding: 20px 0px;
+    height: 250px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.footer-container .footer-logo {
+    display: flex;
+    
+}
+
+.footer-logo img {
+    height: 100px;
+    width: auto;
+}
+
+.footer-logo span {
+    font-family: 'Permanent Marker',sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    font-size: 25px;
 }
 
