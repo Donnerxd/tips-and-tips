@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Indie+Flower&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Concert+One&family=Indie+Flower&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
 :root {
     --background: rgb(250,250,250);
     --details: rgb(200, 200, 200);
     --principal: #B1CC74;
-    --secundary: #383F51;
+    --secundary: ;
     --light-gray: #d3d3d3;
 }
 
@@ -17,8 +17,8 @@
 
 body {
     font-family: 'Montserrat';
-    background-color: var(--background);
-    color: black;
+    background-color: #0e1111;
+    color: white;
 }
 
 .navbar-container {
@@ -26,8 +26,9 @@ body {
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    background-color: #624CAB;
-    height: 60px;
+    background-color: #0e1111;
+    border-bottom: 1px solid #d3d3d3;
+    height: 65px;
     padding: 0px 300px;
 }
 
@@ -41,10 +42,10 @@ body {
 
 .navbar-items a {
     font-size: 18px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .navbar-items a:hover {
@@ -81,15 +82,18 @@ body {
 }
 
 .navbar-logo {
-    height: 70px;
-    width: 75px;
+    height: 110px;
+    width: auto;
+    margin-top: 20px;
+    z-index: 1000;
+
 }
 
 .navbar-first span {
-    font-family: 'Permanent Marker',sans-serif;
+    font-family: 'Concert One',sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: black;
+    color: white;
     font-size: 25px;
 }
 
@@ -99,24 +103,33 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
+    padding: 0;
+}
+
+.welcome-bg {
+    background: linear-gradient(90deg, rgba(98,76,171,1) 0%, rgba(14,17,17,1) 50%);
+    height: 750px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    place-self: center;
-    border-bottom: 1px solid var(--details);
-    height: 750px;
-    width: 100%;
-    padding: 10px;
+    text-align: center;
+    width: 80%;
+    margin-left: 200px;
+    box-sizing: border-box;
 }
 
 .welcome h1 {
     font-size: 50px;
-    text-align: center;
+    margin-left: -50px;
 }
 
 .welcome img {
@@ -133,9 +146,34 @@ body {
     align-items: center;
     margin-top: 52px;
     height: auto;
-    width: 100%;
+    max-width: 80%;
     padding: 10px;
     gap: 10px;
+}
+
+.aba-grupos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.aba-grupos .grupos-header {
+    display: flex;
+    gap: 10px;
+}
+
+.aba-grupos .grupos-header img {
+    height: 50px;
+    width: auto;
+}
+
+.welcome-2 .grupos-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 70%;
 }
 
 .aba-ranking {
@@ -227,12 +265,12 @@ body {
 
 .welcome-2 .planilhas-header h1 {
     font-size: 38px;
-    margin-top: 12px;
+    margin-top: 5px;
 }
 
 .welcome-2 .aba-planilhas img {
-    height: 70px;
-    width: 60px;
+    height: 50px;
+    width: auto;
 }
 
 .welcome-2 .planilha-texto p {
@@ -288,9 +326,8 @@ body {
 
 .stats-grid {
     height: 320px;
-    width: 1300px;
+    width: 100%;
     padding: 12px 30px;
-    background-color: var(--light-gray);
     gap: 24px;
     border-radius: 10px;
 }
@@ -329,7 +366,7 @@ body {
 }
 
 .stats-image {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 8 / 4;
     background-color: rgba(0,0,0, 0.5);
     overflow: hidden;
     display: flex;
@@ -359,7 +396,7 @@ body {
     text-align: center;
     padding: 3px;
     border-radius: 0.5rem;
-    margin-top: 20px;
+    margin-top: 200px;
 }
 
 .stats-title {
@@ -384,6 +421,40 @@ body {
     width: 50px;
 }
 
+.welcome4-bg {
+    background: linear-gradient(90deg, rgba(14,17,17,1) 50%, rgba(98,76,171,1) 100%);
+    height: auto;
+    width: 1910px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 1200px;
+    width: 100%;
+    padding: 10px;
+    gap: 30px;
+}
+
+.welcome4-header {
+    font-size: 32px;
+    place-items: center;
+    margin-top: 55px;
+    width: 100%;
+    color: white;
+}
+
+.welcome4-header span {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--principal);
+}
+
 #buttonConferir {
     background-color: #624CAB;
     font-size: 40px;
@@ -405,11 +476,12 @@ body {
 .footer-container {
     display: flex;
     justify-content: space-around;
-    background-color: #624CAB;
+    background-color: #0e1111;
+    border-top: 1px solid white;
     padding: 20px 0px;
     height: 250px;
     width: 100%;
-    margin-top: 110px;
+    margin-top: -10px;
 }
 
 .footer-contato {
@@ -431,10 +503,10 @@ body {
 }
 
 .footer-logo span {
-    font-family: 'Permanent Marker',sans-serif;
+    font-family: 'Concert One',sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: black;
+    color: white;
     font-size: 25px;
 }
 
