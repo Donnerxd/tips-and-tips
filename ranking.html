@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips and Tips | Ranking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/Images/logo-web.png">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <div class="navbar-first">
+                <img src="/Images/logo-semfundo.png" class="navbar-logo">
+                <span>Tips and Tips</span>
+            </div>
+            <ul class="navbar-items">
+                <li><a href="#home"><i class="fi fi-rr-home"></i> Início</a></li>
+                <div class="submenu-grupos">
+                    <li><a href="#grupos"><i class="fi fi-rr-users-alt"></i> Grupos</a></li>
+                    <div class="submenu-items">
+                        <a href="#"> Tradicionais</a>
+                        <a href="#"> E-Sports</a>
+                    </div>
+                </div>
+                <li><a href="#ranking"><i class="fi fi-rr-ranking-podium"></i> Ranking</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="layout">
+        <section class="ranking-bg">
+            <div class="ranking-bgheader">
+                <h1> Ranking de Grupos</h1>
+                <div class="ranking-types">
+                    <a href="#">RANKING ANUAL</a>
+                    <a href="#">RANKING MENSAL</a>
+                    <a href="#">RANKING MEMBROS</a>
+                </div>
+            </div>
+            <div class="ranking-page">
+                <div class="dropdown-header">
+                    <div class="dropdown">
+                        <button class="dropdown-button" onclick="toggleDropdown()">Mercados<i class="fi fi-rr-angle-small-down"></i></button>
+                        <div class="dropdown-options" style="margin-left: -20px;" id="dropdownMenu">
+                            <a href="#">Futebol</a>
+                            <a href="#">League of Legends</a>
+                            <a href="#">Basquete</a>
+                        </div>
+                        <button class="dropdown-button" style="margin-left: 10px;" onclick="toggleDropdown()">Mês<i class="fi fi-rr-angle-small-down"></i></button>
+                        <div class="dropdown-options" style="margin-left: 100px;" id="dropdownMenu">
+                            <a href="#">Janeiro</a>
+                            <a href="#">Fevereiro</a>
+                            <a href="#">Março</a>
+                            <a href="#">Abril</a>
+                            <a href="#">Maio</a>
+                            <a href="#">Junho</a>
+                            <a href="#">Julho</a>
+                            <a href="#">Agosto</a>
+                            <a href="#">Setembro</a>
+                            <a href="#">Outubro</a>
+                            <a href="#">Novembro</a>
+                            <a href="#">Dezembro</a>
+                        </div>
+                    </div>
+                    <img src="Images/interrogation (1).png">
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
