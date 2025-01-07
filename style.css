@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Concert+One&family=Indie+Flower&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Concert+One&family=Indie+Flower&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
 :root {
@@ -49,30 +49,6 @@ body {
 
 .navbar-items a:hover {
     color: #d3d3d3;
-}
-
-.navbar-items .submenu-grupos {
-    position: relative;
-    display: inline-block;
-}
-
-.submenu-grupos .submenu-items {
-    display: none;
-    position: absolute;
-    background-color: var(--background);
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-    height: 80px;
-    width: 150px;
-    margin-top: 7px;
-    padding: 10px 15px;
-    z-index: 1;
-}
-
-
-
-.submenu-grupos:hover .submenu-items {
-    display: block;
 }
 
 .navbar-first {
@@ -212,7 +188,7 @@ body {
 .card-grupos {
     background-color: white;
     display: flex;
-    width: 450px;
+    width: 400px;
     height: 80px;
     padding: 10px 20px;
     justify-content: flex-start;
@@ -220,6 +196,7 @@ body {
     gap: 10px;
     border-radius: 20px;
 }
+
 
 .card-grupos img {
     height: 35px;
@@ -233,41 +210,14 @@ body {
     color: black;
 }
 
-.stats-card2 {
-    display: flex;
-    background-color: white;
-    height: 100px;
-    width: 900px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 3px;
-    border-radius: 20px;
-}
-
-.stats-title2 {
-    font-size: 32px;
-    font-weight: bold;
-    color: black;
-}
-
-.card-mercados {
-    display: flex;
-    gap: 20px;
-}
-
-.card-mercados img {
-    height: 50px;
-    width: 50px;
-}
-
 .aba-ranking {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
     margin-top: 200px;
+    max-width: 90%;
 }
 
 .ranking-header {
@@ -286,7 +236,20 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 70%;
+    max-width: 60%;
+}
+
+.ranking-flex {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-2 .ranking-printfoto {
+    height: 500px;
+    width: 438px;
+    border: 1px solid white;
 }
 
 .welcome-2 h1 {
@@ -298,36 +261,38 @@ body {
 }
 
 .welcome-2 span {
-    font-size: 20px;
-    color: #624CAB;
+    font-size: 18px;
+    color: gray;
 }
 
 .grid-ranking {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .card-rank {
+    background-color: white;
     display: flex;
-    justify-content: center;
-    padding: 40px;
+    width: 300px;
+    height: 80px;
+    padding: 10px 20px;
+    justify-content: flex-start;
     align-items: center;
-    background-color: #d3d3d3;
-    height: 150px;
-    width: 400px;
-    border-radius: 10px;
+    gap: 10px;
+    border-radius: 20px;
 }
 
-.grid-ranking .card-rank img {
-    height: 50px;
-    width: 50px;
+.card-rank img {
+    height: 35px;
+    width: 35px;
+    border-radius: 1px;
 }
 
-.grid-ranking .card-rank span {
+.card-rank h2 {
+    font-weight: 500;
+    font-size: 18px;
     color: black;
-    font-size: 24px;
-    font-weight: 600;
 }
 
 .welcome-2 .aba-planilhas {
@@ -367,6 +332,8 @@ body {
     border-radius: 10%;
     margin-top: 70px;
 }
+
+
 .welcome-3 {
     display: flex;
     flex-direction: column;
@@ -587,8 +554,8 @@ body {
     gap: 40px;
     padding: 20px 30px;
     margin-top: 80px;
-    width: 60%;
-    background: linear-gradient(220deg, rgba(20,167,225,1) 21%, rgba(14,17,17,1) 47%);
+    width: 50%;
+    background: linear-gradient(220deg, rgba(255,255,255,1) 21%, rgba(14,17,17,1) 47%);
     height: 150px;
     box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1),
                  10px 0 15px rgba(0, 0, 0, 0.1);
@@ -618,7 +585,8 @@ body {
 
 .ranking-page {
     display: flex;
-    width: 60%;
+    flex-direction: column;
+    width: 50%;
     background-color: white;
     height: 92.9vh;
     box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1),
@@ -673,18 +641,76 @@ body {
     text-decoration: none;
     color: black;
     font-size: 14px;
-  }
+}
 
-  .dropdown-options a:hover {
+.dropdown-options a:hover {
     background-color: #14a7e1;
     color: white;
-  }
+}
 
-  .dropdown-header img {
-    position: relative;
-    left: 80%;
-    height: 30px;
-    width: 30px;
-    filter: grayscale(100%) brightness(150%);
-  }
+.icon-help  {
+    font-size: 26px;
+    position: absolute;
+    left: 71.5%;
+    margin-top: 3px;
+    margin-left: 15px;
+    color: #0e1111;
+    place-self: center;
+}
 
+a {
+    text-decoration: none;
+}
+
+.ranking-page table {
+    width: 100%;
+    margin: 10px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Estilo do cabeçalho */
+thead th {
+    background-color: #ECECEC;
+    color: gray;
+    padding: 10px;
+    font-size: 10px;
+}
+
+  /* Estilo das células */
+tbody td {
+    padding: 10px;
+    color: #0e1111;
+    height: 50px;
+    font-size: 16px;
+    place-self: center;
+    font-family: 'Lexend',sans-serif;
+    font-weight: 400;
+}
+
+.name-grupos {
+    display: flex;
+    justify-self: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.ranking-positive {
+    color: #008000;
+}
+
+.ranking-negative {
+    color: #FF0000;
+}
+
+tbody td img {
+    height: 45px;
+    width: auto;
+    border-radius: 50%;
+}
+
+  /* Hover para destacar a linha */
+tbody tr:hover {
+    background-color: #ddd;
+}
