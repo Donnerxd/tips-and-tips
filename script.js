@@ -24,3 +24,20 @@ document.querySelectorAll('.dropdown-button').forEach(button => {
       menu.style.display = 'none';
     });
   });
+
+  // button ano na aba grupo
+
+const dropdownBtn = document.getElementById('DropdownBtn');
+const dropdownAno = document.getElementById('DropdownAno');
+  
+  // Alternar visibilidade ao clicar no botão
+dropdownBtn.addEventListener('click', function (event) {
+    event.stopPropagation(); // Impede que o clique feche o menu imediatamente
+    dropdownAno.style.display = 
+      dropdownAno.style.display === 'block' ? 'none' : 'block';
+});
+  
+  // Fechar o menu ao clicar fora
+window.addEventListener('click', function () {
+    dropdownAno.style.display = 'none';
+});
