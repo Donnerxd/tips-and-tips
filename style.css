@@ -566,28 +566,6 @@ body {
     text-align: center;
 }
 
-.socials-container {
-    display: flex;
-    justify-content: center;
-    align-items:     center;
-    gap: 40px;
-    border-radius: 10px;
-    border: 1px solid var(--gray-800);
-    margin-left: 10px;
-}
-
-
-
-.socials-container a svg {
-    height: 50px;
-    fill: white;
-    transition: transform 0.3 ease;
-}
-
-.socials-container a svg:hover {
-    transform: translateY(-5px);
-}
-
 .navbar-footer-items {
     display: flex;
     justify-content: center;
@@ -821,4 +799,183 @@ tbody td img {
   /* Hover para destacar a linha */
 tbody tr:hover {
     background-color: #ddd;
+}
+
+
+
+
+
+.grupos-bg {
+    background: url(Images/cool-background\ \(3\).png);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grupos-header {
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+    gap: 40px;
+    padding: 20px 30px;
+    margin-top: 80px;
+    width: 55%;
+    height: 150px;
+    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1),
+                 10px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.grupos-header h1 {
+    font-size: 40px;
+    color: black;
+}
+
+.grupos-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 150px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #d3d3d3;
+    width: 55%;
+    background-color: white;
+    color: black;
+    gap: 10px;
+}
+
+.grupos-list img {
+    height: 120px;
+    width: auto;
+    border-radius: 10px;
+}
+
+.list-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.list-title {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.list-title h1 {
+    font-size: 30px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.list-title img {
+    height: 30px;
+    width: 30px;
+    border-radius: 1px;
+    margin-top: 4px;
+}
+
+.list-items .mercados1 {
+    gap: 5px;
+}
+
+.list-items h2 {
+    font-size: 15px;
+}
+
+.mercados1,
+.casas {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+
+.mercados1 img,
+.casas img {
+    height: 15px;
+    width: auto;
+    border-radius: 1px;
+}
+
+.list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px 5px;
+    margin-top: 30px;
+}
+
+.socials-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 73%;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--gray-800);
+    margin-left: 30px;
+    margin-top: 45px;
+}
+
+.socials-container a svg {
+    height: 25px;
+    transition: transform 0.3 ease;
+    fill: white;
+}
+
+.socials-container a {
+    font-size: 26px;
+    font-weight: 500;
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+}
+
+.twitter-icon {
+    background-color: #0e1111;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    align-items: center;
+    height: 30px;
+    width: 40px;
+}
+
+.telegram-icon {
+    background-color: #18b7f5;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    align-items: center;
+    height: 30px;
+    width: 40px;
+}
+
+.telegram-icon img {
+    height: 20px;
+    border-radius: 1px;
+    filter: brightness(0) invert(1);
+}
+
+.redirecionar-grupo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    background-color: #0e1111;
+    color: white;
+    width: 120px;
+    border-radius: 10px;
+    position: absolute;
+    left: 70%;
+    margin-left: 5px;
+}
+
+.list-title a i {
+    font-size: 30px;
+    margin-top: 5px;
 }
