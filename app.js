@@ -5,8 +5,12 @@ const mongodb  = require('mongodb');
 const app      = express();
 const mongoose = require('mongoose');
 const Group = require('./models/group');
+const browserSync = require('browser-sync');
+const connectBrowserSync = require('connect-browser-sync');
 
 const PORT = 4001;
+
+app.use(connectBrowserSync(browserSync({ port: 3001 })));
 
 app.listen(PORT, function() {
     console.log(`O express está rodando na porta ${PORT}`);
@@ -82,6 +86,18 @@ const addGroupsFromJson = () => {
     }
   });
 };
+
+// Duplicação
+const groupData = { name: 'Grupo 1'};
+Group.findOne({ name: groupData.name})
+  .then(group => {
+    if (!group) {
+      return Group.create(groupData);
+    } else {
+      console.log('Grupo já existe, não será duplicado');
+    }
+  })
+  .catch(err => console.error(err));
 
 // Chamar a função quando o servidor for iniciado
 addGroupsFromJson();

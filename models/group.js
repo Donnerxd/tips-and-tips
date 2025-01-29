@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const groupSchema = new mongoose.Schema({
-    name: { type: String, required: true},
+    name: { type: String, unique: true, required: true},
     about: { type: String, require: true},
     twitter: { type: String, require: true},
     telegram: { type: String, require: true},

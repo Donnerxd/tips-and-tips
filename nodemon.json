@@ -1,0 +1,5 @@
+{
+    "watch": ["views", "public", "app.js"],
+    "ext": "hbs css js",
+    "exec": "node app.js"
+}

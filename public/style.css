@@ -828,6 +828,20 @@ tbody tr:hover {
                  10px 0 15px rgba(0, 0, 0, 0.1);
 }
 
+.grupos-page-header {
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+    gap: 40px;
+    padding: 20px 30px;
+    margin-top: 80px;
+    background-color: #d3d3d3;
+    width: 55%;
+    height: 150px;
+    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1),
+                 10px 0 15px rgba(0, 0, 0, 0.1);
+}
+
 .grupos-header h1 {
     font-size: 40px;
     color: black;
@@ -837,10 +851,10 @@ tbody tr:hover {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 150px;
+    height: 240px;
     padding: 10px 20px;
     border-bottom: 1px solid #d3d3d3;
-    width: 55%;
+    width: 1000px;
     background-color: white;
     color: black;
     gap: 10px;
