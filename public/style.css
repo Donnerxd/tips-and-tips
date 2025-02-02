@@ -850,18 +850,17 @@ tbody tr:hover {
 .grupos-list {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    height: 240px;
-    padding: 10px 20px;
+    height: 200px;
+    padding: 15px 20px;
     border-bottom: 1px solid #d3d3d3;
-    width: 1000px;
+    width: 1050px;
     background-color: white;
     color: black;
     gap: 10px;
 }
 
 .grupos-list img {
-    height: 120px;
+    height: 140px;
     width: auto;
     border-radius: 10px;
 }
@@ -882,6 +881,7 @@ tbody tr:hover {
 .list-title h1 {
     font-size: 30px;
     border-bottom: 1px solid #d3d3d3;
+    color: #333;
 }
 
 .list-title img {

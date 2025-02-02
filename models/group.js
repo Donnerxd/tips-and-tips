@@ -8,6 +8,7 @@ const groupSchema = new mongoose.Schema({
     casas: { type: String, require: true},
     tipo: { type: String, require: true},
     products: { type: String, require: true},
+    planilha: { type: String, require: true},
     images: [String]
 });
 

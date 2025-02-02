@@ -1,32 +1,69 @@
 <main class="layout">
     <section class="grupos-bg">
         <div class="grupo-page-header">
-            <h1> TODOS OS GRUPOS</h1>
+            <h1>TODOS OS GRUPOS</h1>
         </div>
         <ul>
-            {{#each groups}}
-            <div class="grupos-list">
-                <img src="../public/images-grupos/klaus-tips/foto-klaustips.png">
-                <div class="list-items">
-                    <div class="list-title">
-                        <img src="../public/images/usuarios-alt.png" alt="Ícone de grupo">
-                        <h1 style="color: red;"> {{this.name}}</h1>
-                        <a href="/page-grupos/grupo1.html" class="redirecionar-grupo"><i class="fi fi-rr-arrow-right"></i></a>
-                        <div class="socials-container">
-                            <a href="https://x.com/KlausTips" class="twitter-icon">
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-                            </a>
-                            <a href="https://www.instagram.com/klauslol1/" class="telegram-icon">
-                                <img src="../Images/aviao-de-papel.png" alt="Ícone do telegram">
-                            </a>
+            {{#if groups}}
+                <p>Dados recebidos com sucesso!</p>
+                {{#each groups}} <!-- 'groups' é o nome que você passou para o template -->
+                    <div class="grupos-list">
+                        <!-- Exemplo de como exibir a imagem, altere conforme necessário -->
+                        {{#if this.images.length}}
+                            <img src="{{this.images.[0]}}" alt="Imagem do grupo"> <!-- Exibindo a primeira imagem -->
+                        {{else}}
+                            <img src="/" alt="Imagem de grupo não disponível">
+                        {{/if}}
+
+                        <div class="list-items">
+                            <div class="list-title">
+                                <img src="/images/usuarios-alt.png" alt="Ícone de grupo">
+                                <h1>{{this.name}}</h1> <!-- Nome do grupo -->
+                                <a href="/page-grupos/{{this.name}}" class="redirecionar-grupo">
+                                    <i class="fi fi-rr-arrow-right"></i>
+                                </a>
+                                <canvas id="chart-{{this.name}}" width="400" height="200"></canvas>
+                                <div class="socials-container">
+                                    <a href="{{this.twitter}}" class="twitter-icon">
+                                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="{{this.telegram}}" class="telegram-icon">
+                                        <img src="../Images/aviao-de-papel.png" alt="Ícone do telegram">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                </div>
-            </div>
-            {{/each}}
+                {{/each}}
+            {{else}}
+        <p>Não foram encontrados grupos.</p>
+        {{/if}}
         </ul>
-        <ul>
+        <div id="excel-chart">
+            <canvas id="excel-chart-canvas" width="400" height="200"></canvas>
+        </div>
     </section>
 </main>
+
+<!-- Incluindo Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Gráfico com dados do Excel
+    const excelCtx = document.getElementById('excel-chart-canvas').getContext('2d');
+    new Chart(excelCtx, {
+        type: 'line',
+        data: {
+            labels: {{#each excelData}}{{this.teamName}}{{#unless @last}},{{/unless}}{{/each}}, // Passa os nomes dos times diretamente
+            datasets: [{
+                label: 'Desempenho dos times',
+                data: {{#each excelData}}{{this.performance}}{{#unless @last}},{{/unless}}{{/each}}, // Passa os dados de desempenho diretamente
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+</script>
 

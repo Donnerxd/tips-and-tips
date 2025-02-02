@@ -12,6 +12,8 @@ const PORT = 4001;
 
 app.use(connectBrowserSync(browserSync({ port: 3001 })));
 
+app.use(express.json());
+
 app.listen(PORT, function() {
     console.log(`O express está rodando na porta ${PORT}`);
 });
@@ -37,7 +39,7 @@ app.get('/', (req,res) => {res.render('inicio', {title: 'Tips and Tips - Início
 app.get('/grupos', async (req, res) => { // Busca todos os grupos pra aba GRUPOS
     try {
         const grupos = await Group.find(); 
-        res.render('grupos', { grupos });  
+        res.render('grupos', { groups: grupos });  
     } catch (err) {
         console.log(err);
         res.status(500).send('Erro ao buscar grupos');
@@ -53,6 +55,37 @@ app.get('/grupos/:id', async (req,res) => { // Busca cada grupo pra página indi
     }
 });
 
+app.post('/adicionar-grupos', async (req, res) => {
+  try {
+    const { name, about, twitter, telegram, casas, tipo, products, planilha, images } = req.body;
+
+    // Verifica se os campos necessários foram fornecidos
+    if (!name || !about || !twitter || !telegram || !casas || !tipo || !products || !planilha) {
+      return res.status(400).send('Todos os campos são obrigatórios!');
+    }
+
+    // Cria um novo grupo usando o modelo Group
+    const novoGrupo = new Group({
+      name,
+      about,
+      twitter,
+      telegram,
+      casas,
+      tipo,
+      products,
+      planilha,
+      images: images || [] // Se imagens não forem enviadas, atribui um array vazio
+    });
+
+    // Salva o novo grupo no banco de dados
+    await novoGrupo.save();
+    res.status(201).send('Grupo adicionado com sucesso!');
+  } catch (err) {
+    console.error('Erro ao adicionar grupo:', err);
+    res.status(500).send('Erro ao adicionar o grupo');
+  }
+});
+
 // MongoDb
 require('dotenv').config();
 
@@ -62,42 +95,5 @@ mongoose.connect('mongodb://localhost:27017/banco-grupos')
 
 // Adicionar grupos via JSON
 
-const fs = require('fs'); // Módulo de sistema de arquivos
 
-// Função para adicionar grupos ao MongoDB a partir do JSON
-const addGroupsFromJson = () => {
-  // Ler o arquivo grupos.json
-  fs.readFile('grupos.json', 'utf8', async (err, data) => {
-    if (err) {
-      console.error('Erro ao ler o arquivo:', err);
-      return;
-    }
 
-    try {
-      const groups = JSON.parse(data); // Converter o JSON em objeto
-      // Inserir os grupos no MongoDB
-      for (const group of groups) {
-        const newGroup = new Group(group);
-        await newGroup.save(); // Salvar cada grupo
-      }
-      console.log('Grupos adicionados com sucesso ao MongoDB!');
-    } catch (err) {
-      console.error('Erro ao processar os dados:', err);
-    }
-  });
-};
-
-// Duplicação
-const groupData = { name: 'Grupo 1'};
-Group.findOne({ name: groupData.name})
-  .then(group => {
-    if (!group) {
-      return Group.create(groupData);
-    } else {
-      console.log('Grupo já existe, não será duplicado');
-    }
-  })
-  .catch(err => console.error(err));
-
-// Chamar a função quando o servidor for iniciado
-addGroupsFromJson();
