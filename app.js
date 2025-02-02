@@ -36,15 +36,36 @@ app.use('/grupos', require('./routes/groups'));
 
 app.get('/', (req,res) => {res.render('inicio', {title: 'Tips and Tips - Início'})});
 
-app.get('/grupos', async (req, res) => { // Busca todos os grupos pra aba GRUPOS
-    try {
-        const grupos = await Group.find(); 
-        res.render('grupos', { groups: grupos });  
-    } catch (err) {
-        console.log(err);
-        res.status(500).send('Erro ao buscar grupos');
+app.get('/grupos', async (req, res) => {
+  try {
+    const grupos = await Group.find({});  // Busca todos os grupos do banco
+    const groupData = [];  // Array para armazenar os dados dos grupos
+
+    // Loop para buscar os dados de cada grupo
+    for (const group of grupos) {
+      try {
+        const { totalApostas, totalInvestido, lucroDado } = await getCellData(group.name);
+        groupData.push({ 
+            name: group.name,
+            totalApostas, 
+            totalInvestido,
+            lucroDado
+        });
+      } catch (err) {
+        console.log(`Erro ao buscar dados para o grupo: ${group.name}`, err);
+      }
     }
+
+    // Envia a resposta com os dados dos grupos para o template
+    res.render('grupos', { groups: groupData });
+  } catch (err) {
+    console.log('Erro ao buscar grupos:', err);
+    res.status(500).send('Erro ao buscar grupos');
+  }
 });
+
+
+
 app.get('/grupos/:id', async (req,res) => { // Busca cada grupo pra página individual de cada GRUPO
     try {
         const group = await Group.findById(req.params.id);

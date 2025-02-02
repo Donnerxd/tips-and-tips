@@ -22,7 +22,8 @@
                                 <a href="/page-grupos/{{this.name}}" class="redirecionar-grupo">
                                     <i class="fi fi-rr-arrow-right"></i>
                                 </a>
-                                <canvas id="chart-{{this.name}}" width="400" height="200"></canvas>
+                                 <!-- Canvas para o gráfico -->
+                                <canvas id="chart-{{@index}}" width="400" height="200"></canvas>   
                                 <div class="socials-container">
                                     <a href="{{this.twitter}}" class="twitter-icon">
                                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -36,34 +37,45 @@
                             </div>
                         </div>
                     </div>
-                    
                 {{/each}}
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    {{#each groups}}
+                        const groupData = {
+                            name: "{{this.name}}",
+                            totalApostas: {{this.totalApostas}},
+                            totalInvestido: {{this.totalInvestido}},
+                            lucroDado: {{this.lucroDado}}
+                        };
+
+                        const ctx = document.getElementById('chart-{{@index}}').getContext('2d');
+                        const chart = new Chart(ctx, {
+                            type: 'bar',  // Tipo de gráfico
+                            data: {
+                                labels: ['Total Apostas', 'Total Investido', 'Lucro Dado'],
+                                datasets: [{
+                                    label: 'Dados do Grupo: {{this.name}}',
+                                    data: [{{this.totalApostas}}, {{this.totalInvestido}}, {{this.lucroDado}}],
+                                    backgroundColor: ['#FF5733', '#33FF57', '#3357FF'],
+                                    borderColor: ['#FF5733', '#33FF57', '#3357FF'],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    {{/each}}
+                </script>
             {{else}}
-        <p>Não foram encontrados grupos.</p>
-        {{/if}}
+                <p>Não foram encontrados grupos.</p>
+            {{/if}}
         </ul>
-        <div id="excel-chart">
-            <canvas id="excel-chart-canvas" width="400" height="200"></canvas>
-        </div>
     </section>
 </main>
-
-<!-- Incluindo Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Gráfico com dados do Excel
-    const excelCtx = document.getElementById('excel-chart-canvas').getContext('2d');
-    new Chart(excelCtx, {
-        type: 'line',
-        data: {
-            labels: {{#each excelData}}{{this.teamName}}{{#unless @last}},{{/unless}}{{/each}}, // Passa os nomes dos times diretamente
-            datasets: [{
-                label: 'Desempenho dos times',
-                data: {{#each excelData}}{{this.performance}}{{#unless @last}},{{/unless}}{{/each}}, // Passa os dados de desempenho diretamente
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        }
-    });
-</script>
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Group = require('../models/group');
-const { readSheet } = require('../services/googleSheets');
+const { getCellData } = require('../services/googleSheets');
 
 
 // Rota para a lista de grupos
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
       if (group.planilha) {
         // Extraí o ID da planilha do link (parte após "/d/")
         const sheetId = group.planilha.split('/d/')[1].split('/')[0];
-        const sheetData = await readSheet(sheetId, 'A1:B10'); // Exemplo de intervalo da planilha
+        const sheetData = await getCellData(group.name); // Chame a função para obter os dados
         
         // Adiciona os dados da planilha ao grupo
         excelData.push({
