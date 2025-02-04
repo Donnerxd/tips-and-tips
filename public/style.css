@@ -250,7 +250,12 @@ body {
 
 .grupos-header {
     display: flex;
+    background: none;
     gap: 10px;
+}
+
+.grupos-header h1 {
+    color: white;
 }
 
 .aba-grupos .grupos-header img {
